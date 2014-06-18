@@ -26,10 +26,11 @@ Or only specific libs:
 @import vendor/maxrelax/vars/_colors // imports only our color variables
 @import vendor/maxrelax/mixins/__all // imports all mixins
 ```
-- - -
+
+<br>
+
 
 ### Contact
-
 * [maxrelax.co][]
 * [hello@maxrelax.co][]
 
