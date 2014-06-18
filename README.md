@@ -1,7 +1,7 @@
 ![maxrelax-icon]
----
 
-# Maxrelax Sass Library
+
+# Sass Library
 
 
 Common Sass mixins, functions, and resets for internal + external projects.
