@@ -47,3 +47,12 @@
 =debug
     outline: 1px solid #c0392b !important
     z-index: 999999
+
+=clearfix
+    &:after
+        content:""
+        display:table
+        clear:both
+
+// Acknowledgements
+// Beat *that* clearfix: [Thierry Koblentz](http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php)
