@@ -63,9 +63,9 @@ $text-default-color: #1b1b1b !default
 $directions: top bottom left right
 
 @for $i from 0 through 10
+    .padding-#{($i * 5)}
+        padding: ($i * 5px) !important
     @each $d in $directions
-        .padding-#{($i * 5)}
-            padding: ($i * 5px) !important
         .padding-#{$d}-#{($i * 5)}
             padding-#{$d}: ($i * 5px) !important
         .margin-#{($i * 5)}
