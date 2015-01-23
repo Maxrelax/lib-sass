@@ -49,3 +49,22 @@ $base-font-size: 16 !default
     @each $pxval in $pxvals
         $em_comp: $em_comp #{$pxval / $base}em
     #{$prop}: #{$em_comp}
+
+// TODO - Test to see if this works too.
+// function is documented well below and others should conform to it
+$breakpoints: (
+    'seed': (min-width: 800px),
+    'sprout': (min-width: 1000px),
+    'plant': (min-width: 1200px),
+)
+
+/// Responsive manager.
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint)
+    @if map-has-key($breakpoints, $breakpoint)
+        @media #{inspect(map-get($breakpoints, $breakpoint))}
+            @content
+    @else
+        @error 'No value found for `#{$breakpoint}`. ' + 'Please make sure it is defined in `$breakpoints` map.'
