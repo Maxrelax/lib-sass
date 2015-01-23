@@ -10,6 +10,7 @@ $charcoal: #1b1b1b !default
 $off-white: #fbfbfb !default
 
 // ??-Shades of Grey
+// TODO: use mix() insetead
 $grey-2: shade($white, 2%) !default
 $grey-5: shade($white, 5%) !default
 $grey-10: shade($white, 10%) !default
@@ -60,10 +61,21 @@ $wisteria:     #8E44AD !default
 // Flash message colors
 // ====================================================================
 
+/// Normal alert message base color
+/// @type Color
 $flash-message: #fcf8e3 // manilla yellow
-$flash-error: #f2dede // red
-$flash-success: #dff0d8 // green
-$flash-info: #d9edf7 // blue
+
+/// Error alert message base color
+/// @type Color
+$flash-error: #f2dede // non-harsh red
+
+/// Success alert message base color
+/// @type Color
+$flash-success: #dff0d8 // go green
+
+/// Friendly info alert message base color
+/// @type Color
+$flash-info: #d9edf7 // nice blue
 
 // Social Media Colors
 // ====================================================================

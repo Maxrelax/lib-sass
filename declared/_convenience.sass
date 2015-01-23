@@ -62,6 +62,7 @@ $text-default-color: #1b1b1b !default
 
 $directions: top bottom left right
 
+// Generates a set of convenience px classes for padding and margin
 @for $i from 0 through 10
     .padding-#{($i * 5)}
         padding: ($i * 5px) !important
