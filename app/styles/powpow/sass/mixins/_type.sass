@@ -7,10 +7,14 @@
     text-shadow: 0 $size 0 rgba(0, 0, 0, $opacity)
 
 =font-antialiased
-    -webkit-font-smoothing: antialiased
+    webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: greyscale
+    font-smoothing: antialiased
 
 =font-subpixel
-    -webkit-font-smoothing: subpixel-antialiased
+    webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto
+    font-smoothing: subpixel-antialiased
 
 =text-tail-truncate($text-overflow: ellipsis, $single-line: false)
     text-overflow: #{$text-overflow}

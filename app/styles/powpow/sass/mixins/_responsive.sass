@@ -1,0 +1,114 @@
+// mixins/_responsive.sass
+// Mixins that help with responsive styling
+
+$base-font-size: 16 !default
+
+// Convenient responsive breakpoints based on Bootstrap 3 defaults
+=query($point)
+    @if $point == one-column or $point == xs
+        @media (max-width: 767px)
+            @content
+    // Two column, "non-mobile" and above
+    @if $point == full or $point == xs-plus
+        @media (min-width: 768px)
+            @content
+    // Two column, "non-mobile" only
+    @if $point == sm
+        @media (min-width: 768px) and (max-width: 991px)
+            @content
+    // Two column, "non-mobile" and above
+    @if $point == sm-plus
+        @media (min-width: 768px)
+            @content
+    // Three column, condensed only
+    @if $point == md
+        @media (min-width: 992px) and (max-width: 1999px)
+            @content
+    // Three column, condensed and above
+    @if $point == md-plus
+        @media (min-width: 992px)
+            @content
+    // Three column, design target size
+    @if $point == lg
+        @media (min-width: 1200px)
+            @content
+
+
+// Conv
+=prem($prop, $pxvals, $base: $base-font-size)
+    $rem_comp: null
+    $px_comp: null
+    @each $pxval in $pxvals
+        $rem_comp: $rem_comp #{$pxval / $base}rem
+        $px_comp: $px_comp #{$pxval}px
+    #{$prop}: #{$px_comp}
+    #{$prop}: #{$rem_comp}
+
+=pem($prop, $pxvals, $base: $base-font-size)
+    $em_comp: null
+    @each $pxval in $pxvals
+        $em_comp: $em_comp #{$pxval / $base}em
+    #{$prop}: #{$em_comp}
+
+
+// TODO - Test to see if this works too.
+// function is documented well below and others should conform to it
+// $breakpoints: (
+//     'seed': (min-width: 800px),
+//     'sprout': (min-width: 1000px),
+//     'plant': (min-width: 1200px),
+// )
+
+/// Responsive manager.
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+// @mixin respond-to($breakpoint)
+//     @if map-has-key($breakpoints, $breakpoint)
+//         @media #{inspect(map-get($breakpoints, $breakpoint))}
+//             @content
+//     @else
+//         @error 'No value found for `#{$breakpoint}`. ' + 'Please make sure it is defined in `$breakpoints` map.'
+
+// -----------------------------------------------------------------------------
+// [doc]
+//
+// Calculate padding for a proportional wrapper
+//
+// Force an intrinsic ratio based on the width of the containing block to used as a
+// wrapper for fixed aspect-ratio content.
+//
+// More information: http://alistapart.com/article/creating-intrinsic-ratios-for-video
+//
+// [/doc]
+// -----------------------------------------------------------------------------
+@mixin intrinsic-ratio($ratioX, $ratioY)
+    padding-top: percentage((1 / $ratioX) * $ratioY)
+
+// -----------------------------------------------------------------------------
+// [doc]
+//
+// Best fit media to a fixed size wrapper
+//
+// Uses transforms (where available) to 'best fit' an image or video element to it's
+// container. Best used with the intrinsic ratio mixin.
+//
+// Example of use: http://codepen.io/anon/pen/urhmI
+//
+// [/doc]
+// -----------------------------------------------------------------------------
+@mixin best-fit-media
+    position: absolute
+    .no-transform-support &
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        margin: auto
+        min-height: 100%
+        max-height: 100%
+    .supports-transform &
+        top: 50%
+        left: 50%
+        width: 100%
+        transform: translate(-50%, -50%)

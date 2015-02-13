@@ -1,0 +1,106 @@
+// ----------------------------------------------------------------------------
+//
+// Utility Classes
+//
+// ----------------------------------------------------------------------------
+
+// [doc] Clear floats. [/doc]
+.clearfix
+    @extend %clearfix
+
+// [doc] Hide using display: none. [/doc]
+.is-hidden
+    display: none !important
+
+// [doc] Hide using clip and make the element visible to Screen Readers. [/doc]
+.accessibility
+    @extend %visually-hide
+
+// [doc] Hide using opacity (modern browsers only). [/doc]
+.is-faded-out
+    opacity: 0
+
+// [doc] Split long words over multiple lines. Useful for hyperlinks. [/doc]
+.break-text
+    @extend %prevent-text-breakouts
+
+// [doc] Vertically center content.
+//
+// Use this class on the container and __inner on the element to be centered.
+// [/doc]
+.vertically-centered
+    display: table
+    width: 100%
+    .vertically-centered__inner
+        display: table-cell
+        vertical-align: middle
+
+.split--left
+    float: left
+
+.split--right
+    float: right
+
+// [doc] Float an image left. [/doc]
+.img--left
+    float: left
+    margin-right: 1em
+    margin-bottom: 1em
+
+// [doc] Float an image right. [/doc]
+.img--right
+    float: right
+    margin-bottom: 1em
+    margin-left: 1em
+
+// [doc] Force an image to fill its container. [/doc]
+.img--fill
+    display: block
+    min-width: 100%
+    max-width: 100%
+    height: auto
+
+.list-reset
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+.text-left
+    text-align: left !important
+.text-center
+    text-align: center !important
+.text-right
+    text-align: right !important
+
+// -----------------------------------------------------------------------------
+// Convenience margin / padding
+// -----------------------------------------------------------------------------
+$directions: top bottom left right
+
+@for $i from 0 through 10
+    .padding-#{($i * 5)}
+        padding: ($i * 5px) !important
+    .margin-#{($i * 5)}
+        margin: ($i * 5px) !important
+    @each $d in $directions
+        .padding-#{$d}-#{($i * 5)}
+            padding-#{$d}: ($i * 5px) !important
+        .margin-#{$d}-#{($i * 5)}
+            margin-#{$d}: ($i * 5px) !important
+
+
+// -----------------------------------------------------------------------------
+// color classes
+// -----------------------------------------------------------------------------
+
+// $colors: darkgray $darkgray,titlegray $titlegray, bodygray $bodygray,lightgray $lightgray,subduedgray $subduedgray,darkblue $darkblue,navblue $navblue,lpblue $lpblue,linkblue $linkblue,teal $teal,green $green,yella $yella,orange $orange,red $red,plum $plum,mauve $mauve,pink $pink,darkcyan $darkcyan,softgreen $softgreen,beige $beige,maroon $maroon,darkred $darkred
+// .color--white
+//     color: #fff
+
+// @each $color in $colors
+//     $key: nth($color, 1)
+//     $value: nth($color, 2)
+
+//     .color--#{$key}
+//         color: #{$value}

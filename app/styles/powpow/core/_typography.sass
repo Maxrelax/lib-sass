@@ -1,0 +1,41 @@
+// -----------------------------------------------------------------------------
+//
+// Typographic Base
+//
+// -----------------------------------------------------------------------------
+
+body
+    min-height: 100%
+    color: $body-copy
+
+// -----------------------------------------------------------------------------
+// Typographic Element Definitions
+// -----------------------------------------------------------------------------
+
+p
+    margin-bottom: 1em
+    &:last-child
+        margin-bottom: 0
+
+a
+    @extend %prevent-text-breakouts
+    color: $linkblue
+    cursor: pointer
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+em
+    font-style: normal
+
+// -----------------------------------------------------------------------------
+// Text selection
+//
+// Needs to be declared twice to work properly cross browser, not to be combined
+// -----------------------------------------------------------------------------
+
+::-moz-selection
+    background-color: rgba($linkblue, .25)
+
+::selection
+    background-color: rgba($linkblue, .25)
