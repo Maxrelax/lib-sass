@@ -5,26 +5,26 @@
 // -----------------------------------------------------------------------------
 
 body
-    min-height: 100%
-    min-height: 100vh
-    color: $body-copy
+  min-height: 100%
+  min-height: 100vh
+  color: $body-copy
 
 // -----------------------------------------------------------------------------
 // Typographic Element Definitions
 // -----------------------------------------------------------------------------
 
 p
-    margin-bottom: 1em
-    &:last-child
-        margin-bottom: 0
+  margin-bottom: 1em
+  &:last-child
+      margin-bottom: 0
 
 a
-    @extend %prevent-text-breakouts
-    color: $linkblue
-    cursor: pointer
-    text-decoration: none
-    &:hover
-        text-decoration: underline
+  @extend %prevent-text-breakouts
+  color: $linkblue
+  cursor: pointer
+  text-decoration: none
+  &:hover
+      text-decoration: underline
 
 
 // -----------------------------------------------------------------------------
@@ -34,7 +34,7 @@ a
 // -----------------------------------------------------------------------------
 
 ::-moz-selection
-    background-color: rgba($linkblue, .25)
+  background-color: rgba($linkblue, .25)
 
 ::selection
-    background-color: rgba($linkblue, .25)
+  background-color: rgba($linkblue, .25)
